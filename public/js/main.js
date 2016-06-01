@@ -44,13 +44,21 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(1);
+	(function (entryPoint) {
 
-	$(function () {
-	    $('#clip-btn').on('click', function (e) {
-	        console.log('click');
-	        alert('Clip');
+	    var jQuery = __webpack_require__(1);
+
+	    entryPoint(jQuery);
+
+	})(function ($) {
+
+	    $(function () {
+	        $('#clip-btn').on('click', function (e) {
+	            console.log('click');
+	            alert('Clip');
+	        });
 	    });
+
 	});
 
 /***/ },

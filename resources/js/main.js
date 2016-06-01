@@ -1,8 +1,16 @@
-var $ = require('jquery');
+(function (entryPoint) {
 
-$(function () {
-    $('#clip-btn').on('click', function (e) {
-        console.log('click');
-        alert('Clip');
+    var jQuery = require('jquery');
+
+    entryPoint(jQuery);
+
+})(function ($) {
+
+    $(function () {
+        $('#clip-btn').on('click', function (e) {
+            console.log('click');
+            alert('Clip');
+        });
     });
+
 });
