@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/jian-hua-ho/FontClipper/issues"
   },
-  "homepage": "https://github.com/jian-hua-ho/FontClipper#readme"
+  "homepage": "https://github.com/jian-hua-ho/FontClipper#readme",
+  "dependencies": {
+    "jquery": "^2.2.4"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.1"
+  }
 }
