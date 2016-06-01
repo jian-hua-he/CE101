@@ -12,6 +12,6 @@
 
     "browser_action": {
         // "default_icon": "public/images/icon.png",
-        "default_popup": "main.html"
+        "default_popup": "public/html/main.html"
     }
 }
