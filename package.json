@@ -1,0 +1,19 @@
+{
+  "name": "font-clipper",
+  "version": "1.0.0",
+  "description": "Store web font name and source link from web page",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jian-hua-ho/FontClipper.git"
+  },
+  "author": "Jian-Hua, He",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jian-hua-ho/FontClipper/issues"
+  },
+  "homepage": "https://github.com/jian-hua-ho/FontClipper#readme"
+}
