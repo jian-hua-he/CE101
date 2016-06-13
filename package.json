@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/jian-hua-ho/FontClipper#readme",
   "dependencies": {
-    "jquery": "^2.2.4"
+    "jquery": "^2.2.4",
+    "vue": "^1.0.24"
   },
   "devDependencies": {
     "webpack": "^1.13.1"
