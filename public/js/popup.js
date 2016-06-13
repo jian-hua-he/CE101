@@ -48,9 +48,9 @@
 
 	    var jQuery = __webpack_require__(1);
 
-	    entryPoint(jQuery);
+	    entryPoint(window.chrome, jQuery);
 
-	})(function ($) {
+	})(function (chrome, $) {
 
 	    $(function () {
 	        $('#clip-btn').on('click', function (e) {

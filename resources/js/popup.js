@@ -2,9 +2,9 @@
 
     var jQuery = require('jquery');
 
-    entryPoint(jQuery);
+    entryPoint(window.chrome, jQuery);
 
-})(function ($) {
+})(function (chrome, $) {
 
     $(function () {
         $('#clip-btn').on('click', function (e) {
