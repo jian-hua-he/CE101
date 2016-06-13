@@ -13,5 +13,17 @@
     "browser_action": {
         // "default_icon": "public/images/icon.png",
         "default_popup": "public/html/popup.html"
-    }
+    },
+
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "public/js/content.js"
+            ]
+        }
+    ]
 }

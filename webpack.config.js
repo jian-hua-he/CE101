@@ -1,9 +1,12 @@
 var webpack = require('webpack');
 
 module.exports = {
-    entry: './resources/js/popup.js',
+    entry: {
+        popup: './resources/js/popup.js',
+        content: './resources/js/content.js'
+    },
     output: {
         path: __dirname + '/public/js',
-        filename: 'popup.js',
+        filename: '[name].js',
     },
 };
