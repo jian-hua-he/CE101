@@ -1,6 +1,6 @@
 (function (entryPoint) {
 
-    var jQuery = require('jquery');
+    let jQuery = require('jquery');
 
     entryPoint(window.chrome, jQuery);
 

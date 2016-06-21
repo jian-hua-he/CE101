@@ -44,12 +44,13 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
 	(function (entryPoint) {
 
 	    var jQuery = __webpack_require__(1);
 
 	    entryPoint(window.chrome, jQuery);
-
 	})(function (chrome, $) {
 
 	    $(function () {
@@ -58,7 +59,6 @@
 	            alert('Clip');
 	        });
 	    });
-
 	});
 
 /***/ },
