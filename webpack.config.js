@@ -9,4 +9,16 @@ module.exports = {
         path: __dirname + '/public/js',
         filename: '[name].js',
     },
+    babel: {
+        presets: ['es2015'],
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
+            }
+        ]
+    }
 };
