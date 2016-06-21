@@ -1,16 +1,8 @@
-(function (entryPoint) {
+import jQuery from 'jquery';
+import detectFont from 'detect-font';
 
-    let jQuery = require('jquery');
+$(function () {
 
-    entryPoint(window.chrome, jQuery);
-
-})(function (chrome, $) {
-
-    $(function () {
-        $('#clip-btn').on('click', function (e) {
-            console.log('click');
-            alert('Clip');
-        });
-    });
+    let chrome = window.chrome;
 
 });
