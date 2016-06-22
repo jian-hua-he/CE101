@@ -1,4 +1,4 @@
-import jQuery from 'jquery';
+import $ from 'jquery';
 import detectFont from 'detect-font';
 
 $(function () {

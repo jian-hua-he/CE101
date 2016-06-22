@@ -56,14 +56,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	$(function () {
+	(0, _jquery2.default)(function () {
 
 	    var chrome = window.chrome;
-
-	    $('#clip-btn').on('click', function (e) {
-	        console.log('click');
-	        alert('Clip');
-	    });
 	});
 
 /***/ },
