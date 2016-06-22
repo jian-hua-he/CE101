@@ -52,13 +52,20 @@
 
 	var _detectFont = __webpack_require__(2);
 
-	var _detectFont2 = _interopRequireDefault(_detectFont);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	(0, _jquery2.default)(function () {
 
 	    var chrome = window.chrome;
+
+	    var currentFontElem = (0, _jquery2.default)('#current-font');
+
+	    (0, _jquery2.default)('h1, h2, h3, p, a, span').mouseenter(function (e) {
+	        var that = this;
+	        var fontFamily = (0, _detectFont.detectFont)(that);
+
+	        currentFontElem.empty().append(fontFamily);
+	    });
 	});
 
 /***/ },
