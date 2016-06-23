@@ -2,16 +2,21 @@
     "manifest_version": 2,
 
     "name": "Font Clipper",
+
     "description": "Store web font name and source link from web page",
+
     "version": "1.0",
 
+    "icons": {
+        "16": "public/images/icon16.png",
+        "48": "public/images/icon48.png"
+    },
+
     "permissions": [
-        "fontSettings",
         "notifications"
     ],
 
     "browser_action": {
-        // "default_icon": "public/images/icon.png",
         "default_popup": "public/html/popup.html"
     },
 
