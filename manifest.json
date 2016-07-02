@@ -12,6 +12,11 @@
         "48": "public/images/icon48.png"
     },
 
+    "background": {
+        "persistent": false,
+        "scripts": ["background.js"]
+    },
+
     "permissions": [
         "notifications"
     ],
