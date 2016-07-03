@@ -13,8 +13,8 @@
     },
 
     "background": {
-        "persistent": false,
-        "scripts": ["background.js"]
+        "scripts": ["public/js/eventPage.js"],
+        "persistent": false
     },
 
     "permissions": [

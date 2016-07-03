@@ -4,7 +4,7 @@ module.exports = {
     entry: {
         popup: './resources/js/popup.js',
         content: './resources/js/content.js',
-        background: './resources/js/background.js'
+        eventPage: './resources/js/eventPage.js'
     },
     output: {
         path: __dirname + '/public/js',
