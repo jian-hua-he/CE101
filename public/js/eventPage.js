@@ -55,9 +55,19 @@
 	(0, _jquery2.default)(function () {
 
 	    var chrome = window.chrome;
+	    var switchOn = false;
 
 	    chrome.browserAction.onClicked.addListener(function () {
-	        alert('trigger');
+	        switchOn = !switchOn;
+
+	        chrome.tabs.query({
+	            active: true,
+	            currentWindow: true
+	        }, function (tabs) {
+	            chrome.tabs.sendMessage(tabs[0].id, { switchOn: switchOn }, function (response) {
+	                console.log(response);
+	            });
+	        });
 	    });
 	});
 

@@ -58,10 +58,18 @@
 
 	    var chrome = window.chrome;
 
-	    (0, _jquery2.default)('h1, h2, h3, p, a, span').mouseenter(function (e) {
-	        var that = this;
-	        var fontFamily = (0, _detectFont.detectFont)(that);
-	        console.log(fontFamily);
+	    var selector = (0, _jquery2.default)('h1, h2, h3, h4, h5, h6, p, a, span');
+	    chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+
+	        if (request.switchOn) {
+	            selector.on('mouseenter', function (e) {
+	                var that = this;
+	                var fontFamily = (0, _detectFont.detectFont)(that);
+	                console.log(fontFamily);
+	            });
+	        } else {
+	            selector.unbind('mouseenter');
+	        }
 	    });
 	});
 

@@ -5,10 +5,18 @@ $(function () {
 
     let chrome = window.chrome;
 
-    $('h1, h2, h3, p, a, span').mouseenter(function (e) {
-        let that = this;
-        let fontFamily = detectFont(that);
-        console.log(fontFamily);
+    let selector = $('h1, h2, h3, h4, h5, h6, p, a, span');
+    chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+
+        if (request.switchOn) {
+            selector.on('mouseenter', function (e) {
+                let that = this;
+                let fontFamily = detectFont(that);
+                console.log(fontFamily);
+            });
+        } else {
+            selector.unbind('mouseenter');
+        }
     });
 
 });
