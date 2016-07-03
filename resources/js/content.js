@@ -12,6 +12,7 @@ $(function () {
             selector.on('mouseenter', function (e) {
                 let that = this;
                 let fontFamily = detectFont(that);
+
                 console.log(fontFamily);
             });
         } else {
