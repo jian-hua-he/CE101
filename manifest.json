@@ -18,11 +18,10 @@
     },
 
     "permissions": [
-        "notifications"
     ],
 
     "browser_action": {
-        "default_popup": "public/html/popup.html"
+        // "default_popup": "public/html/popup.html"
     },
 
     "content_scripts": [
