@@ -4,14 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Font Clipper</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="../css/popup.css" />
 </head>
 
 <body>
     <div>
-        <button id="clip-btn">Clip</button>
+        <p>default</p>
+        <p class="serif">serif</p>
+        <p class="sans-serif">sans-serif</p>
+        <p class="cursive">cursive</p>
+        <p class="fantasy">fantasy</p>
+        <p class="monospace">monospace</p>
+        <p class="lato">Lato</p>
+    </div>
+
+    <div>
+        <p>Current Font: <span id="current-font">None</span></p>
     </div>
 </body>
+
 <script src="../js/popup.js"></script>
 
 </html>
