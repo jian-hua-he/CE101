@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { detectFont, supportedFonts } from 'detect-font';
 
-$(function () {
+$(() => {
 
     let chrome = window.chrome;
 
@@ -9,9 +9,8 @@ $(function () {
     chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
         if (request.switchOn) {
-            selector.on('mouseenter', function (e) {
-                let that = this;
-                let fontFamily = detectFont(that);
+            selector.on('mouseenter', (e) => {
+                let fontFamily = detectFont(e.target);
 
                 console.log(fontFamily);
             });
