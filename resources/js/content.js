@@ -7,8 +7,7 @@ $(() => {
 
     let selector = $('h1, h2, h3, h4, h5, h6, p, a, span');
     chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-
-        if (request.switchOn) {
+        if (request.active) {
             selector.on('mouseenter', (e) => {
                 let fontFamily = detectFont(e.target);
 
