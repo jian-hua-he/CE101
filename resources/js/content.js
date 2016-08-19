@@ -1,20 +1,16 @@
 import $ from 'jquery';
-import { detectFont, supportedFonts } from 'detect-font';
+import FontClipper from './modules/FontClipper';
 
 $(() => {
 
     let chrome = window.chrome;
+    let fontClipper = new FontClipper;
 
-    let selector = $('h1, h2, h3, h4, h5, h6, p, a, span');
     chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         if (request.active) {
-            selector.on('mouseenter', (e) => {
-                let fontFamily = detectFont(e.target);
-
-                console.log(fontFamily);
-            });
+            fontClipper.enable();
         } else {
-            selector.unbind('mouseenter');
+            fontClipper.disable();
         }
     });
 
