@@ -1,4 +1,4 @@
- class Tooltip {
+class Tooltip {
     constructor() {
         this.text = '';
     }
@@ -15,6 +15,6 @@
     hide() {
         console.log('Hide tooltip');
     }
- }
+}
 
- export default Tooltip;
+export default Tooltip;
