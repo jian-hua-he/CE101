@@ -63,8 +63,7 @@
 
 	        if (request.switchOn) {
 	            selector.on('mouseenter', function (e) {
-	                var that = this;
-	                var fontFamily = (0, _detectFont.detectFont)(that);
+	                var fontFamily = (0, _detectFont.detectFont)(e.target);
 
 	                console.log(fontFamily);
 	            });
