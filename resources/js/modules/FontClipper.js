@@ -1,4 +1,16 @@
 import $ from 'jquery';
+import { detectFont, supportedFonts } from 'detect-font';
+
+let _bindEvent = (selector) => {
+    selector.on('mouseenter', (e) => { 
+        let fontFamily = detectFont(e.target); 
+        console.log(fontFamily); 
+    });
+};
+
+let _unbindEvent = (selector) => {
+    selector.on('mouseenter');
+};
 
 class FontClipper {
     constructor() {
@@ -6,11 +18,13 @@ class FontClipper {
     }
 
     enable() {
-        alert('Enable Font Clipper');
+        console.log('Enable Font Clipper');
+        _bindEvent(this.selector);
     }
 
     disable() {
-        alert('Disable Font Clipper');
+        console.log('Disable Font Clipper');
+        _unbindEvent(this.selector);
     }
 }
 
