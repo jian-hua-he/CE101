@@ -1,18 +1,30 @@
+import $ from 'jquery'
+
 class Tooltip {
     constructor() {
-        this.text = '';
+        let body;
+
+        if (!body) {
+            body = $('body');
+        }
+
+        body.append("<div class='font-clipper-tooltip'></div>");
+
+        this.tooltip = $('.font-clipper-tooltip');
     }
 
     setText(text) {
-        this.text = text;
-        console.log('Set text: ' + this.text);
+        this.tooltip.text(text);
+        console.log('Set text: ' + text);
     }
 
     display() {
+        this.tooltip.show();
         console.log('Display tooltip');
     }
 
     hide() {
+        this.tooltip.hide();
         console.log('Hide tooltip');
     }
 }
