@@ -8,7 +8,6 @@ class Tooltip {
 
     setText(text) {
         this.el.text(`Font Face: ${text}`);
-        console.log('Set text: ' + text);
     }
 
     setStyle(top, left) {
@@ -26,12 +25,10 @@ class Tooltip {
 
     display() {
         this.el.show();
-        console.log('Display tooltip');
     }
 
     hide() {
         this.el.hide();
-        console.log('Hide tooltip');
     }
 }
 
