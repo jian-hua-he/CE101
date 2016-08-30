@@ -16,7 +16,7 @@ class Tooltip {
             'color': '#DDD',
             'background': '#333',
             'position': 'absolute',
-            'padding': '0.5em',
+            'padding': '0.5em 1em',
             'border-radius': '0.5em',
             'top': top,
             'left': left

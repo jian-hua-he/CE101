@@ -6,7 +6,7 @@ let _bindEvent = (selector, tooltip) => {
     selector.on('mouseenter', (e) => {
         let fontFamily = detectFont(e.target);
         let target = $(e.target);
-        let top = target.offset().top;
+        let top = target.offset().top - 26;
         let left = target.offset().left;
 
         tooltip.setText(fontFamily);
