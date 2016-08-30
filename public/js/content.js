@@ -50,25 +50,22 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _detectFont = __webpack_require__(2);
+	var _FontClipper = __webpack_require__(2);
+
+	var _FontClipper2 = _interopRequireDefault(_FontClipper);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	(0, _jquery2.default)(function () {
 
 	    var chrome = window.chrome;
+	    var fontClipper = new _FontClipper2.default();
 
-	    var selector = (0, _jquery2.default)('h1, h2, h3, h4, h5, h6, p, a, span');
 	    chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-
-	        if (request.switchOn) {
-	            selector.on('mouseenter', function (e) {
-	                var fontFamily = (0, _detectFont.detectFont)(e.target);
-
-	                console.log(fontFamily);
-	            });
+	        if (request.active) {
+	            fontClipper.enable();
 	        } else {
-	            selector.unbind('mouseenter');
+	            fontClipper.disable();
 	        }
 	    });
 	});
@@ -9895,6 +9892,81 @@
 
 /***/ },
 /* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _jquery = __webpack_require__(1);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _detectFont = __webpack_require__(3);
+
+	var _Tooltip = __webpack_require__(4);
+
+	var _Tooltip2 = _interopRequireDefault(_Tooltip);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _bindEvent = function _bindEvent(selector, tooltip) {
+	    selector.on('mouseenter', function (e) {
+	        var fontFamily = (0, _detectFont.detectFont)(e.target);
+	        var target = (0, _jquery2.default)(e.target);
+	        var top = target.offset().top - 26;
+	        var left = target.offset().left;
+
+	        tooltip.setText(fontFamily);
+	        tooltip.setStyle(top, left);
+	        tooltip.display();
+	    });
+
+	    selector.on('mouseleave', function (e) {
+	        tooltip.hide();
+	    });
+	};
+
+	var _unbindEvent = function _unbindEvent(selector, tooltip) {
+	    selector.unbind('mouseenter');
+	    selector.unbind('mouseleave');
+	};
+
+	var FontClipper = function () {
+	    function FontClipper() {
+	        _classCallCheck(this, FontClipper);
+
+	        this.el = (0, _jquery2.default)('h1, h2, h3, h4, h5, h6, p, a, span, ul, ol, li');
+	        this.tooltip = new _Tooltip2.default();
+	    }
+
+	    _createClass(FontClipper, [{
+	        key: 'enable',
+	        value: function enable() {
+	            console.log('Enable Font Clipper');
+	            _bindEvent(this.el, this.tooltip);
+	        }
+	    }, {
+	        key: 'disable',
+	        value: function disable() {
+	            console.log('Disable Font Clipper');
+	            _unbindEvent(this.el, this.tooltip);
+	        }
+	    }]);
+
+	    return FontClipper;
+	}();
+
+	exports.default = FontClipper;
+
+/***/ },
+/* 3 */
 /***/ function(module, exports) {
 
 	module.exports =
@@ -10109,6 +10181,70 @@
 
 	/***/ }
 	/******/ ]);
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _jquery = __webpack_require__(1);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var Tooltip = function () {
+	    function Tooltip() {
+	        _classCallCheck(this, Tooltip);
+
+	        (0, _jquery2.default)('body').append("<div id='font-clipper-tooltip'></div>");
+	        this.el = (0, _jquery2.default)('#font-clipper-tooltip');
+	    }
+
+	    _createClass(Tooltip, [{
+	        key: 'setText',
+	        value: function setText(text) {
+	            this.el.text('Font Face: ' + text);
+	        }
+	    }, {
+	        key: 'setStyle',
+	        value: function setStyle(top, left) {
+	            this.el.css({
+	                'font-size': '12px',
+	                'color': '#DDD',
+	                'background': '#333',
+	                'position': 'absolute',
+	                'padding': '0.5em 1em',
+	                'border-radius': '0.5em',
+	                'top': top,
+	                'left': left
+	            });
+	        }
+	    }, {
+	        key: 'display',
+	        value: function display() {
+	            this.el.show();
+	        }
+	    }, {
+	        key: 'hide',
+	        value: function hide() {
+	            this.el.hide();
+	        }
+	    }]);
+
+	    return Tooltip;
+	}();
+
+	exports.default = Tooltip;
 
 /***/ }
 /******/ ]);

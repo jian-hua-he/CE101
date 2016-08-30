@@ -55,13 +55,11 @@
 	(0, _jquery2.default)(function () {
 
 	    var chrome = window.chrome;
-	    var switchOn = false;
+	    var currentStatus = false;
 
 	    chrome.browserAction.onClicked.addListener(function (tab) {
-	        switchOn = !switchOn;
-
-	        chrome.tabs.sendMessage(tab.id, { switchOn: switchOn }, function (response) {
-	            console.log(response);
+	        chrome.tabs.sendMessage(tab.id, { active: !currentStatus }, function (response) {
+	            currentStatus = !currentStatus;
 	        });
 	    });
 	});
